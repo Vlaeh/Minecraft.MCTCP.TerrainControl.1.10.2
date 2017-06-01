@@ -118,15 +118,16 @@ public class TXChunkGenerator implements IChunkGenerator
     }
 
     @Override
-    public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position, boolean flag)
+    public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position)
     {
         // Gets the nearest stronghold
         if (("Stronghold".equals(structureName)) && (this.world.strongholdGen != null))
         {
-            return this.world.strongholdGen.getClosestStrongholdPos(worldIn, position, flag);
+            return this.world.strongholdGen.getClosestStrongholdPos(worldIn, position);
         }
         return null;
     }
+
 
     @Override
     public void recreateStructures(Chunk chunkIn, int chunkX, int chunkZ)

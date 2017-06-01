@@ -509,9 +509,9 @@ public class ForgeWorld implements LocalWorld
         // Relight and update players
         if (newState.getLightOpacity(this.world, pos) != oldOpacity || newState.getLightValue(this.world, pos) != oldLight)
         {
-            this.world.theProfiler.startSection("checkLight");
+            this.world.profiler.startSection("checkLight");
             this.world.checkLight(pos);
-            this.world.theProfiler.endSection();
+            this.world.profiler.endSection();
         }
 
         // Notify world: (2 | 16) == update client, don't update observers

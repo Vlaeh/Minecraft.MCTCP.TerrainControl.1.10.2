@@ -21,7 +21,7 @@ import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureOceanMonument;
 import net.minecraft.world.gen.structure.StructureStart;
 
-public class TXOceanMonumentGen extends MapGenStructure
+public class TXOceanMonumentGen extends TXMapGenStructure_1_11
 {
     private int gridSize;
     private int randomOffset;
@@ -107,9 +107,9 @@ public class TXOceanMonumentGen extends MapGenStructure
     }
 
     @Override
-    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos, boolean p_180706_3_)
+    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos)
     {
         this.world = worldIn;
-        return findNearestStructurePosBySpacing(worldIn, this, pos, this.gridSize, this.gridSize - this.randomOffset - 1, 10387313, true, 100, p_180706_3_);
+        return findNearestStructurePosBySpacing(worldIn, pos, this.gridSize, this.gridSize - this.randomOffset - 1, 10387313, true, 100, false);
     }
 }

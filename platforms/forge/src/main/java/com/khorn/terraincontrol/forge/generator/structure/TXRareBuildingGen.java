@@ -18,7 +18,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.gen.structure.*;
 
-public class TXRareBuildingGen extends MapGenStructure
+public class TXRareBuildingGen extends TXMapGenStructure_1_11
 {
     public List<Biome> biomeList;
 
@@ -133,9 +133,9 @@ public class TXRareBuildingGen extends MapGenStructure
     }
 
     @Override
-    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos, boolean p_180706_3_)
+    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos)
     {
         this.world = worldIn;
-        return findNearestStructurePosBySpacing(worldIn, this, pos, this.maxDistanceBetweenScatteredFeatures, 8, 14357617, false, 100, p_180706_3_);
+        return findNearestStructurePosBySpacing(worldIn, pos, this.maxDistanceBetweenScatteredFeatures, 8, 14357617, false, 100, false);
     }
 }

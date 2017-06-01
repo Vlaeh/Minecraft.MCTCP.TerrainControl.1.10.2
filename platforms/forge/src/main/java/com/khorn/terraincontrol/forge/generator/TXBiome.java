@@ -134,10 +134,7 @@ public class TXBiome extends Biome
                     biomeIds.getGenerationId());
         }
 
-        if (!BiomeDictionary.hasAnyType(customBiome)) {
-            // register custom biome with Forge's BiomeDictionary
-            BiomeDictionary.makeBestGuess(customBiome);
-        }
+        BiomeDictionary.getTypesForBiome(customBiome);
         return customBiome;
     }
 

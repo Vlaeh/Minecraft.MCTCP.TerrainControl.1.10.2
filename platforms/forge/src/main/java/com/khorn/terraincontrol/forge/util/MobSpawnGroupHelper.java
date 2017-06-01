@@ -11,8 +11,9 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
-import net.minecraftforge.fml.common.registry.EntityEntry;
+//import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -118,7 +119,7 @@ public final class MobSpawnGroupHelper
      */
     static Class<? extends EntityLiving> toMinecraftClass(String mobName)
     {
-        Class<? extends Entity> clazz = EntityList.getClass(new ResourceLocation(mobName));
+        Class<? extends Entity> clazz = EntityList.field_75625_b.get(mobName);//)getClass(new ResourceLocation(mobName));
         if (clazz != null && EntityLiving.class.isAssignableFrom(clazz))
         {
             return clazz.asSubclass(EntityLiving.class);
@@ -133,9 +134,9 @@ public final class MobSpawnGroupHelper
      */
     private static String fromMinecraftClass(Class<? extends Entity> entityClass)
     {
-        EntityEntry entry = EntityRegistry.getEntry(entityClass);
+        EntityRegistration entry = EntityRegistry.instance().lookupModSpawn(entityClass, false);
         if (entry != null) {
-            return entry.getName();
+            return entry.getEntityName();
         }
 
         return null;

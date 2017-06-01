@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class TXVillageGen extends MapGenStructure
+public class TXVillageGen extends TXMapGenStructure_1_11
 {
     /**
      * A list of all the biomes villages can spawn in.
@@ -99,9 +99,9 @@ public class TXVillageGen extends MapGenStructure
     }
 
     @Override
-    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos, boolean p_180706_3_)
+    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos)
     {
         this.world = worldIn;
-        return findNearestStructurePosBySpacing(worldIn, this, pos, this.distance, 8, 10387312, false, 100, p_180706_3_);
+        return findNearestStructurePosBySpacing(worldIn, pos, this.distance, 8, 10387312, false, 100, false);
     }
 }

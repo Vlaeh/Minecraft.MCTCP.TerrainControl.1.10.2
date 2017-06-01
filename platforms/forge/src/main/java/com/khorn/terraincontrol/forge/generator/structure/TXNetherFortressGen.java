@@ -78,7 +78,7 @@ public class TXNetherFortressGen extends MapGenStructure
     }
 
     @Override
-    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos, boolean p_180706_3_)
+    public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos)
     {
         // int i = 1000;
         int j = pos.getX() >> 4;
@@ -99,7 +99,7 @@ public class TXNetherFortressGen extends MapGenStructure
                         int k1 = j + i1;
                         int l1 = k + j1;
 
-                        if (this.canSpawnStructureAtCoords(k1, l1) && (!p_180706_3_ || !worldIn.isChunkGeneratedAt(k1, l1)))
+                        if (this.canSpawnStructureAtCoords(k1, l1) && !TXMineshaftGen.isChunkGeneratedAt(world, k1, l1))
                         {
                             return new BlockPos((k1 << 4) + 8, 64, (l1 << 4) + 8);
                         }
